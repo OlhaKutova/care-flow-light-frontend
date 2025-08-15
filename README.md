@@ -1,46 +1,37 @@
-# Getting Started with Create React App
+# CareFlow Lite Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+CareFlow Lite is a demo telehealth-style application demonstrating a complete end-to-end workflow for managing patient consultations across multiple clinics.
 
-## Available Scripts
+CareFlow Lite Frontend is the clinician-facing web interface for the CareFlow Lite platform.  
+It showcases secure mock authentication, GraphQL queries and mutations, and a modern, responsive UI built with React, TypeScript, and Tailwind CSS.  
+The application is designed to provide a realistic example of a clinician-facing system, enabling users to view and filter consultations, create new consultations, update statuses, and record notes - with a strong focus on polished, intuitive interactions.
 
-In the project directory, you can run:
+This frontend leverages React and TypeScript, Apollo Client for GraphQL communication, Redux Toolkit for state management, and Tailwind CSS for styling.
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
+- **Secure Mock Login**: Authenticates via backend login mutation and stores JWT locally.
+- **GraphQL Integration**: Queries and mutations for consultations, patients, clinics, and notes via Apollo Client.
+- **CRUD Operations**: Create, read, update, delete consultations; update status; add notes.
+- **Responsive UI**: Tailwind CSS v3 for mobile-friendly and accessible design.
+- **Protected Routes**: Guards pages and redirects unauthenticated users to the login screen.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## Tech Stack
+**Frontend**
+- React 19
+- TypeScript
+- Apollo Client (GraphQL)
+- Redux Toolkit
+- React Router
+- Tailwind CSS
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## Environment Variables
+Create a `.env` file in the project root:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+```env
+REACT_APP_GRAPHQL_ENDPOINT=http://localhost:4000/graphql

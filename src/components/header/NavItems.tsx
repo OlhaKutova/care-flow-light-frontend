@@ -1,6 +1,20 @@
 import { Link } from "react-router-dom";
+import type { LucideIcon } from "lucide-react";
 import { Home as HomeIcon, BookOpen, FlaskConical, Newspaper } from "lucide-react";
 import ROUTES from "../../constants/routes";
+
+type NavItem = {
+  label: string;
+  to: string;
+  Icon: LucideIcon;
+};
+
+const NAV_ITEMS: ReadonlyArray<NavItem> = [
+  { label: "Home", to: ROUTES.home, Icon: HomeIcon },
+  { label: "Mission", to: ROUTES.mission, Icon: BookOpen },
+  { label: "Research", to: ROUTES.research, Icon: FlaskConical },
+  { label: "Blog", to: ROUTES.blog, Icon: Newspaper },
+] as const;
 
 type Props = {
   onItemClick?: () => void;
@@ -10,38 +24,17 @@ type Props = {
 export default function NavItems({ onItemClick, iconSize = 18 }: Props) {
   return (
     <>
-      <Link
-        to={ROUTES.home}
-        className="flex items-center gap-1 text-slate-700 hover:text-slate-900"
-        onClick={onItemClick}
-      >
-        <HomeIcon size={iconSize} />
-        Home
-      </Link>
-      <Link
-        to={ROUTES.mission}
-        className="flex items-center gap-1 text-slate-700 hover:text-slate-900"
-        onClick={onItemClick}
-      >
-        <BookOpen size={iconSize} />
-        Mission
-      </Link>
-      <Link
-        to={ROUTES.research}
-        className="flex items-center gap-1 text-slate-700 hover:text-slate-900"
-        onClick={onItemClick}
-      >
-        <FlaskConical size={iconSize} />
-        Research
-      </Link>
-      <Link
-        to={ROUTES.blog}
-        className="flex items-center gap-1 text-slate-700 hover:text-slate-900"
-        onClick={onItemClick}
-      >
-        <Newspaper size={iconSize} />
-        Blog
-      </Link>
+      {NAV_ITEMS.map(({ label, to, Icon }) => (
+        <Link
+          key={to}
+          to={to}
+          className="flex items-center gap-1 text-slate-700 hover:text-slate-900"
+          onClick={onItemClick}
+        >
+          <Icon size={iconSize} aria-hidden />
+          {label}
+        </Link>
+      ))}
     </>
   );
 }

@@ -1,11 +1,22 @@
-import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Header from "./components/header/Header";
+import Home from "./pages/Home";
+import Mission from "./pages/Mission";
+import Research from "./pages/Research";
+import Blog from "./pages/Blog";
+import Login from "./pages/Login";
 
-function App() {
+export default function App() {
   return (
-    <div className="min-h-screen grid place-items-center bg-slate-100">
-      <h1 className="text-3xl font-bold">CareFlow Light</h1>
-    </div>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/mission" element={<Mission />} />
+        <Route path="/research" element={<Research />} />
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
+    </Router>
   );
 }
-
-export default App;
